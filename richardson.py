@@ -40,9 +40,9 @@
 
 	r10( h )  =   -1/(2^8 - 1) * r6( h )   +   (2^8)/(2^8 - 1) * r6( h/2 )
 
-
-	...
-
+	.
+	.
+	.
 
 	rn( h )  =   -1/(2^(n-1) - 1) * rn-1( h )   +   (2^(n-1))/(2^(n-1) - 1) * rn-1( h/2 )
 
@@ -78,7 +78,6 @@ def richardson(f, x, h, order=10):
 
 
 	return ddf_approx(h)
-
 
 def magnitude(x):
 	"""order of magnitude of x"""
@@ -135,21 +134,31 @@ def display_results(aproximations, hs, order=None, ddf_true=None):
 
 if __name__ == "__main__":
 
+	#
 	#  Test function
+	#
+
 	def f(x):
 		return np.exp(np.sin(x)) 
 
-	ddf_true = 0.46956439926573407 #grad(grad(f))(x)
+	ddf_true = 0.46956439926573407
 
+	#
 	# test specs
+	#
+
 	x = 0.5
 
 	# order of precision O(h^order)
 	order = 10
 
 	ns = [-3, -2, -1, 0, 1, 2, 3]
-	prev_ddf_approx = None
 
+	#
+	# run test
+	#
+
+	prev_ddf_approx = None
 	hs = []
 	ddf_approximations = []
 
@@ -163,7 +172,3 @@ if __name__ == "__main__":
 
 		# output
 		display_results(ddf_approximations, hs)
-
-
-
-
